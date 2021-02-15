@@ -1,0 +1,33 @@
+{% extends "layout.html"%}
+{% block title %} Product List {%endblock%}
+{% block content %}
+    <h1 class="title">Products</h1>
+    {% if products %}
+    <form action="" method="post" name="product_list">
+      <table class="table is-striped is-fullwidth">
+        {% for product_key, product in products %}
+        <tr>
+          <td>
+            {% if current_user.is_admin %}
+            <label class = "checkbox">
+              <input type = "checkbox" name="product_keys" value ="{{ product_key }}"/>
+            </label>
+            {% endif %}
+            <a href="{{ url_for('product_page', product_key=product_key) }}">
+            {{ product.name }}
+            </a>
+          </td>
+        </tr>
+        {% endfor %}
+      </table>
+
+      {% if current_user.is_admin %}
+      <div class="field is-grouped">
+        <div class="control">
+          <button class="button is-danger is-small">Delete Product</button>
+        </div>
+      </div>
+      {% endif %}
+    </form>
+    {% endif %}
+{%endblock%}

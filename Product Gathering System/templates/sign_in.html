@@ -1,0 +1,74 @@
+{% extends "layout.html" %}
+{% block title %}Sign in{% endblock %}
+{% block content %}
+    <h1 class="title">Sign in</h1>
+
+    <form action="" method="post" name="signin">
+      {{ form.csrf_token }}
+      <div class="field">
+        <label for="name" class="label">Name</label>
+        <div class="control">
+          {{ form.name(required=True, autofocus=True, class='input') }}
+        </div>
+        {% for error in form.name.errors %}
+        <p class="help has-background-warning">
+            {{ error }}
+        </p>
+        {% endfor %}
+      </div>
+
+      <div class="field">
+        <label for="surname" class="label">Surname</label>
+        <div class="control">
+          {{ form.surname(required=True, autofocus=True, class='input') }}
+        </div>
+        {% for error in form.surname.errors %}
+        <p class="help has-background-warning">
+            {{ error }}
+        </p>
+        {% endfor %}
+      </div>
+
+      <div class="field">
+        <label for="email" class="label">E-mail</label>
+        <div class="control">
+            {{ form.email(required=True, autofocus=True, class='input') }}
+        </div>
+        {% for error in form.email.errors %}
+        <p class="help has-background-warning">
+            {{ error }}
+        </p>
+        {% endfor %}
+      </div>
+
+      <div class="field">
+        <label for="password" class="label">Password</label>
+        <div class="control">
+          {{ form.password(required=True, autofocus=True, class='input') }}
+        </div>
+        {% for error in form.password.errors %}
+        <p class="help has-background-warning">
+            {{ error }}
+        </p>
+        {% endfor %}
+      </div>
+
+      <div class="field">
+        <label for="phone_number" class="label">Phone Number</label>
+        <div class="control">
+          {{ form.phone_number(required=True, autofocus=True, class='input') }}
+        </div>
+        {% for error in form.phone_number.errors %}
+        <p class="help has-background-warning">
+            {{ error }}
+        </p>
+        {% endfor %}
+      </div>
+
+      <div class="field is-grouped">
+        <div class="control">
+          <button class="button is-primary is-small">Sign-in</button>
+        </div>
+      </div>
+    </form>
+{% endblock %}

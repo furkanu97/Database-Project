@@ -1,0 +1,21 @@
+h1.title{
+    color: red;
+}
+
+footer{
+    margin-bottom: 0px;
+    text-align: center;
+    color: red;
+}
+
+.footer{
+    background: rgb(221, 221, 221);
+}
+
+p{
+    font-style: italic;
+}
+
+div.navbar-brand{
+    background-color: rgb(221, 221, 221);
+}

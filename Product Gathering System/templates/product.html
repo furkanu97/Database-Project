@@ -1,0 +1,36 @@
+{% extends "layout.html"%}
+{% block title %} Product List {%endblock%}
+{% block content %}
+    <h1 class="title">{{ product.name }}</h1>
+
+    <table class="table">
+        <tr>
+            <th>Name:</th>
+            <td>{{ product.name }}</td>
+        </tr>
+        <tr>
+            <th>Price:</th>
+            <td>{{ product.price }}</td>
+        </tr>
+        <tr>
+            <th>Import Status:</th>
+            <td>{{ product.imported }}</td>
+        </tr>
+        <tr>
+            <th>Category:</th>
+            <td>{{ product.category }}</td>
+        </tr>
+        <tr>
+            <th>Info:</th>
+            <td>{{ product.info }}</td>
+        </tr>
+    </table>
+
+    {% if current_user.is_authenticated %}
+    <div class="field is-grouped">
+        <div class="control">
+            <a class="button is-primary is-outlined is-small" href="{{ request.path }}/edit">Edit</a>
+        </div>
+    </div>
+    {% endif %}
+{%endblock%}
